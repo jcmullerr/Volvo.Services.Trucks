@@ -1,5 +1,5 @@
 using System;
-namespace Volvo.Services.Trucks.Domain.Entities
+namespace Volvo.Services.Trucks.Domain.Entities.Trucks
 {
     public class Truck : Entity
     {

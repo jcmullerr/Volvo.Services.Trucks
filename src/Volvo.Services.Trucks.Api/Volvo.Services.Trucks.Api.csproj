@@ -1,11 +1,16 @@
 <Project Sdk="Microsoft.NET.Sdk.Web">
 
+  <ItemGroup>
+    <ProjectReference Include="..\Volvo.Services.Trucks.Infra.CrossCutting.Ioc\Volvo.Services.Trucks.Infra.CrossCutting.Ioc.csproj" />
+    <ProjectReference Include="..\Volvo.Services.Trucks.Infra.Notifications\Volvo.Services.Trucks.Infra.Notifications.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="MediatR" Version="9.0.0" />
+  </ItemGroup>
+
   <PropertyGroup>
     <TargetFramework>net5.0</TargetFramework>
   </PropertyGroup>
-
-  <ItemGroup>
-    <PackageReference Include="Swashbuckle.AspNetCore" Version="5.6.3" />
-  </ItemGroup>
 
 </Project>

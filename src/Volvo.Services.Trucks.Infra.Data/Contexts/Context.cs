@@ -4,16 +4,19 @@ using System.Threading;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using Volvo.Services.Trucks.Domain.Entities;
+using Volvo.Services.Trucks.Domain.Entities.Security;
+using Volvo.Services.Trucks.Domain.Entities.Trucks;
 using Volvo.Services.Trucks.Domain.Interfaces;
 
 namespace Volvo.Services.Trucks.Infra.Data.Contexts
 {
-    public class DataContext : DbContext , IDataContext
+    public class Context : DbContext , IContext
     {
         public DbSet<Truck> Trucks { get; set; }
         public DbSet<Model> Models { get; set; }
+        public DbSet<User> Users { get; set; }
 
-        public DataContext(DbContextOptions<DataContext> options) : base(options)
+        public Context(DbContextOptions<Context> options) : base(options)
         { }
 
         public DbSet<T> GetDbSet<T>() where T : Entity, new()
@@ -27,13 +30,6 @@ namespace Volvo.Services.Trucks.Infra.Data.Contexts
                 .FirstOrDefault(p => p.PropertyType == repositoryType);
 
             return (DbSet<T>)propertyInfo.GetValue(this);
-        }
-
-        public async Task<int> SaveChanges(
-            CancellationToken cancellationToken = default
-        )
-        {
-            return await SaveChangesAsync(cancellationToken);
         }
     }
 }

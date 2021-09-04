@@ -10,11 +10,11 @@ using Volvo.Services.Trucks.Domain.Interfaces;
 
 namespace Volvo.Services.Trucks.Infra.Data.Repositories
 {
-    public class BaseRepository<T> : IRepository<T> where T : Entity, new()
+    public class Repository<T> : IRepository<T> where T : Entity, new()
     {
         private readonly DbSet<T> _dbSet;
 
-        public BaseRepository(IDataContext context)
+        public Repository(IContext context)
         {
             _dbSet = context.GetDbSet<T>();
         }
@@ -25,7 +25,6 @@ namespace Volvo.Services.Trucks.Infra.Data.Repositories
             {
                 var data = await _dbSet.Where(x => x.Id == id).FirstOrDefaultAsync();
                 _dbSet.Remove(data);
-
             }
             catch (Exception ex)
             {

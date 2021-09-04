@@ -1,4 +1,4 @@
-namespace Volvo.Services.Trucks.Domain.Entities
+namespace Volvo.Services.Trucks.Domain.Entities.Trucks
 {
     public class Model : Entity
     {
