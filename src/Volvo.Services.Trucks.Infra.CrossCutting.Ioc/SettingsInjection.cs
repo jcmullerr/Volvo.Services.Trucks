@@ -1,4 +1,5 @@
 using Microsoft.Extensions.DependencyInjection;
+using Volvo.Services.Trucks.Infra.CrossCutting.Settings;
 
 namespace Volvo.Services.Trucks.Infra.CrossCutting.Ioc
 {

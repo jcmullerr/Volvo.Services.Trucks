@@ -6,6 +6,7 @@ using Microsoft.IdentityModel.Tokens;
 using Volvo.Services.Trucks.Domain.Entities.Security;
 using Volvo.Services.Trucks.Domain.Interfaces.Authentication;
 using Volvo.Services.Trucks.Infra.CrossCutting;
+using Volvo.Services.Trucks.Infra.CrossCutting.Settings;
 
 namespace Volvo.Services.Trucks.Infra.Authentication.Services
 {

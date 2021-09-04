@@ -1,6 +1,8 @@
 using Microsoft.Extensions.DependencyInjection;
 using Volvo.Services.Trucks.Domain.Entities.Security;
 using Volvo.Services.Trucks.Domain.Interfaces;
+using Volvo.Services.Trucks.Domain.Interfaces.Authentication;
+using Volvo.Services.Trucks.Infra.Authentication.Services;
 using Volvo.Services.Trucks.Infra.Data.Contexts;
 using Volvo.Services.Trucks.Infra.Data.Repositories;
 using Volvo.Services.Trucks.Infra.Data.UoW;
@@ -21,6 +23,9 @@ namespace Volvo.Services.Trucks.Infra.CrossCutting.Ioc
 
             //UnitOfWork
             services.AddScoped<IUnitOfWork, UnitOfWork>();
+
+            //Services
+            services.AddScoped<ITokenGeneratorService,TokenGeneratorService>();
         }
     }
 }

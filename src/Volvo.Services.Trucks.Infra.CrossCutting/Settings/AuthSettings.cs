@@ -1,6 +1,6 @@
 using Microsoft.Extensions.Configuration;
 
-namespace Volvo.Services.Trucks.Infra.CrossCutting
+namespace Volvo.Services.Trucks.Infra.CrossCutting.Settings
 {
     public class AuthSettings
     {

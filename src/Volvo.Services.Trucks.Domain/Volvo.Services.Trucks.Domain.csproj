@@ -12,6 +12,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Volvo.Services.Trucks.Infra.Notifications\Volvo.Services.Trucks.Infra.Notifications.csproj" />
+    <ProjectReference Include="..\Volvo.Services.Trucks.Infra.CrossCutting\Volvo.Services.Trucks.Infra.CrossCutting.csproj" />
   </ItemGroup>
 
 </Project>

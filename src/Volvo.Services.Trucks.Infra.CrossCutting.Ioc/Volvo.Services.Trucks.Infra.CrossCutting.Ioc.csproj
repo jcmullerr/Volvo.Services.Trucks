@@ -22,6 +22,7 @@
     <ProjectReference Include="..\Volvo.Services.Trucks.Domain\Volvo.Services.Trucks.Domain.csproj" />
     <ProjectReference Include="..\Volvo.Services.Trucks.Infra.Data\Volvo.Services.Trucks.Infra.Data.csproj" />
     <ProjectReference Include="..\Volvo.Services.Trucks.Infra.Notifications\Volvo.Services.Trucks.Infra.Notifications.csproj" />
+    <ProjectReference Include="..\Volvo.Services.Trucks.Infra.Authentication\Volvo.Services.Trucks.Infra.Authentication.csproj" />
   </ItemGroup>
 
 </Project>

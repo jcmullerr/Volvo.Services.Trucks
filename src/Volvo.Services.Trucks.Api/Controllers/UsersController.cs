@@ -7,15 +7,15 @@ namespace Volvo.Services.Trucks.Api.Controllers
 {
     [ApiController]
     [Route("[controller]")]
-    public class UserController : ControllerBase
+    public class UsersController : ControllerBase
     {
         private readonly IMediator _mediator;
 
-        public UserController(IMediator mediator)
+        public UsersController(IMediator mediator)
         {
             _mediator = mediator;
         }
-
+    
         [HttpPost]
         public async Task<IActionResult> InsertUser(
             AddUserCommand command
