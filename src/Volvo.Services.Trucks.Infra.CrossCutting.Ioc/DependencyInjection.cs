@@ -1,5 +1,6 @@
 using Microsoft.Extensions.DependencyInjection;
 using Volvo.Services.Trucks.Domain.Entities.Security;
+using Volvo.Services.Trucks.Domain.Entities.Trucks;
 using Volvo.Services.Trucks.Domain.Interfaces;
 using Volvo.Services.Trucks.Domain.Interfaces.Authentication;
 using Volvo.Services.Trucks.Infra.Authentication.Services;
@@ -20,6 +21,7 @@ namespace Volvo.Services.Trucks.Infra.CrossCutting.Ioc
 
             //Repositories
             services.AddScoped<IRepository<User>, Repository<User>>();
+            services.AddScoped<IRepository<Truck>, Repository<Truck>>();
 
             //UnitOfWork
             services.AddScoped<IUnitOfWork, UnitOfWork>();

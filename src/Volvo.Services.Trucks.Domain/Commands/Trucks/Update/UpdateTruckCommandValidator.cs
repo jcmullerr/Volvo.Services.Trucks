@@ -1,15 +1,12 @@
 using System;
-using System.ComponentModel.DataAnnotations.Schema;
 using FluentValidation;
-using Volvo.Services.Trucks.Domain.Entities.Trucks;
 using Volvo.Services.Trucks.Infra.CrossCutting.Enums;
 
-namespace Volvo.Services.Trucks.Domain.Commands.Trucks
+namespace Volvo.Services.Trucks.Domain.Commands.Trucks.Update
 {
-    public class TruckCommandValidator :
-        AbstractValidator<TruckCommand>
+    public class UpdateTruckCommandValidator : AbstractValidator<UpdateTruckCommand>
     {
-        public TruckCommandValidator()
+        public UpdateTruckCommandValidator()
         {
             RuleFor(p => p.TruckModel)
                 .Must(p => p == ETruckModel.FH || p == ETruckModel.FM);
@@ -21,6 +18,10 @@ namespace Volvo.Services.Trucks.Domain.Commands.Trucks
             RuleFor(p => p.ModelYear)
                 .NotEmpty()
                 .GreaterThan(DateTime.Now.AddYears(-100));
+            
+            
+            RuleFor(x => x.Id)
+                .NotEmpty();
         }
     }
 }

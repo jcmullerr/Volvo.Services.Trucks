@@ -9,6 +9,23 @@ namespace Volvo.Services.Trucks.Domain.Entities.Trucks
         public DateTime ModelYear { get; private set; }
         public DateTime FabricationYear { get; private set; }
         public ETruckModel TruckModel { get; private set; }
+        public Truck()
+        { }
+
+        public Truck(
+            long id,
+            string description,
+            DateTime modelYear,
+            DateTime fabricationYear,
+            ETruckModel truckModel
+        )
+        {
+            Description = description;
+            ModelYear = modelYear;
+            FabricationYear = fabricationYear;
+            TruckModel = truckModel;
+            Id = id;
+        }
 
         public Truck(
             string description,

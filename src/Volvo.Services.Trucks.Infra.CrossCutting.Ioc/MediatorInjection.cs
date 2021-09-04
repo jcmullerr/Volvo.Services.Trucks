@@ -13,13 +13,13 @@ namespace Volvo.Services.Trucks.Infra.CrossCutting.Ioc
 
         public static void AddMediator(this IServiceCollection services)
         {
-            services.AddMediatR(DomainAssembly);
 
             AssemblyScanner
                 .FindValidatorsInAssembly(DomainAssembly)
                 .ForEach(result => services.AddScoped(result.InterfaceType, result.ValidatorType));
 
             services.AddTransient(typeof(IPipelineBehavior<,>), typeof(ValidationBehavior<,>));
+            services.AddMediatR(DomainAssembly); 
         }
     }
 

@@ -5,20 +5,30 @@ using Volvo.Services.Trucks.Infra.CrossCutting.Enums;
 
 namespace Volvo.Services.Trucks.Domain.Commands.Trucks
 {
-    public class TruckCommand
+    public abstract class TruckCommand
     {
+        public long? Id { get; set; }
         public string Description { get; set; }
         public DateTime ModelYear { get; set; }
         public DateTime FabricationYear { get; set; }
         public ETruckModel TruckModel { get; set; }
-        public Truck MapToTruck()
+        public Truck MapToTruck(bool isUpdate = false)
         {
+            if(isUpdate)
+                return new Truck(
+                    Id.GetValueOrDefault(),
+                    Description,
+                    ModelYear,
+                    FabricationYear,
+                    TruckModel
+                );
+            
             return new Truck(
-                Description,
-                ModelYear,
-                FabricationYear,
-                TruckModel
-            );
+                    Description,
+                    ModelYear,
+                    FabricationYear,
+                    TruckModel
+                );
         }
     }
 }

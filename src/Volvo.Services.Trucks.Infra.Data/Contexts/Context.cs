@@ -13,7 +13,6 @@ namespace Volvo.Services.Trucks.Infra.Data.Contexts
     public class Context : DbContext , IContext
     {
         public DbSet<Truck> Trucks { get; set; }
-        public DbSet<Model> Models { get; set; }
         public DbSet<User> Users { get; set; }
 
         public Context(DbContextOptions<Context> options) : base(options)

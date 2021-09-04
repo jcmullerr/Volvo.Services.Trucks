@@ -19,7 +19,7 @@ namespace Volvo.Services.Trucks.Infra.Notifications.Filters
             if (_notificationContext.HasNotifications)
             {
                 context.Result = new ErrorResult(
-                    "Houve um erro ao processar sua requisição", 
+                    "Failed to process request", 
                     _notificationContext.Notifications, 
                     StatusCodes.Status422UnprocessableEntity
                 );
