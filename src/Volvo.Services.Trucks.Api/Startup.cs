@@ -36,6 +36,8 @@ namespace Volvo.Services.Trucks.Api
             services.AddSwagger();
             services.AddSettings();
             services.AddServices();
+            services.AddAuthentication(Configuration);
+            services.AddMediator();
         }
         
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
@@ -45,7 +47,7 @@ namespace Volvo.Services.Trucks.Api
                 app.UseDeveloperExceptionPage();
             }
 
-            app.UseSwagger();
+            app.UseSwaggerDoc();
             app.UseHttpsRedirection();
             app.UseHsts();
 

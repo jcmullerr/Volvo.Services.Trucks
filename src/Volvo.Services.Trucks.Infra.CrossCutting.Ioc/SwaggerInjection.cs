@@ -44,7 +44,7 @@ namespace Volvo.Services.Trucks.Infra.CrossCutting.Ioc
             });
         }
 
-        public static void UseSwagger(this IApplicationBuilder app)
+        public static void UseSwaggerDoc(this IApplicationBuilder app)
         {
             app.UseSwagger();
             app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "Volvo.Services.Trucks.Api v1"));

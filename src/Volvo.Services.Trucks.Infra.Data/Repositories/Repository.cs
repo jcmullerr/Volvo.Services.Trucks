@@ -19,7 +19,7 @@ namespace Volvo.Services.Trucks.Infra.Data.Repositories
             _dbSet = context.GetDbSet<T>();
         }
 
-        public async Task<bool> Delete(long id)
+        public async Task<bool> DeleteAsync(long id)
         {
             try
             {
@@ -34,12 +34,12 @@ namespace Volvo.Services.Trucks.Infra.Data.Repositories
             return true;
         }
 
-        public async Task<IEnumerable<T>> GetMany(Expression<Func<T, bool>> predicate)
+        public async Task<IEnumerable<T>> GetManyAsync(Expression<Func<T, bool>> predicate)
         {
             return await GetQuery().Where(predicate).ToListAsync();
         }
 
-        public async Task<T> GetSingle(Expression<Func<T, bool>> predicate, bool noTrcking = false)
+        public async Task<T> GetSingleAsync(Expression<Func<T, bool>> predicate, bool noTrcking = false)
         {
             if (noTrcking)
                 return await _dbSet.AsNoTracking().FirstOrDefaultAsync(predicate);
@@ -47,7 +47,7 @@ namespace Volvo.Services.Trucks.Infra.Data.Repositories
             return await GetQuery().FirstOrDefaultAsync(predicate);
         }
 
-        public async Task<bool> Insert(T model)
+        public async Task<bool> InsertAsync(T model)
         {
             try
             {
@@ -61,11 +61,13 @@ namespace Volvo.Services.Trucks.Infra.Data.Repositories
             return true;
         }
 
-        public async Task<bool> Update(T model)
+        public async Task<bool> UpdateAsync(T model)
         {
             try
             {
-                _dbSet.Update(model);
+                await Task.Run(() => {
+                    _dbSet.Update(model);
+                });
             }
             catch (Exception ex)
             {
