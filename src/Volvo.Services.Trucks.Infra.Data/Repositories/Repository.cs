@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using Volvo.Services.Trucks.Domain.Entities;
 using Volvo.Services.Trucks.Domain.Interfaces;
+using Volvo.Services.Trucks.Infra.Data.Contexts;
 
 namespace Volvo.Services.Trucks.Infra.Data.Repositories
 {
@@ -14,7 +15,7 @@ namespace Volvo.Services.Trucks.Infra.Data.Repositories
     {
         private readonly DbSet<T> _dbSet;
 
-        public Repository(IContext context)
+        public Repository(Context context)
         {
             _dbSet = context.GetDbSet<T>();
         }
@@ -51,6 +52,7 @@ namespace Volvo.Services.Trucks.Infra.Data.Repositories
         {
             try
             {
+                model.SetInsertDate();
                 await _dbSet.AddAsync(model);
             }
             catch (Exception ex)
@@ -65,6 +67,7 @@ namespace Volvo.Services.Trucks.Infra.Data.Repositories
         {
             try
             {
+                model.SetUpdateDate();
                 await Task.Run(() => {
                     _dbSet.Update(model);
                 });

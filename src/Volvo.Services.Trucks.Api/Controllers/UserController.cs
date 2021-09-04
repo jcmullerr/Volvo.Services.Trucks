@@ -21,9 +21,8 @@ namespace Volvo.Services.Trucks.Api.Controllers
             AddUserCommand command
         )
         {
-            return Ok(
-                await _mediator.Send(command)
-            );
+            await _mediator.Send(command);
+            return Ok();
         }
     }
 }

@@ -10,14 +10,24 @@ namespace Volvo.Services.Trucks.Domain.Commands.Users.Add
         IRequestHandler<AddUserCommand, Unit>
     {
         private readonly IRepository<User> _repository;
-        public AddUserCommandHandler()
-        { }
+        private readonly IUnitOfWork _unitOfWork;
+        public AddUserCommandHandler(
+            IRepository<User> repository, 
+            IUnitOfWork unitOfWork
+        )
+        {
+            _repository = repository;
+            _unitOfWork = unitOfWork;
+        }
         public async Task<Unit> Handle(
             AddUserCommand request, 
             CancellationToken cancellationToken
         )
         {
-            await _repository.InsertAsync(request.MapToUser());
+            await _repository.InsertAsync(
+                request.MapToUser()
+            );
+            await _unitOfWork.SaveChangesAsync();
             return Unit.Value;
         }
     }

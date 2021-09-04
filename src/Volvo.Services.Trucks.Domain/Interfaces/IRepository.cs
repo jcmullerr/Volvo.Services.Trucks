@@ -3,10 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
 using System.Threading.Tasks;
+using Volvo.Services.Trucks.Domain.Entities;
 
 namespace Volvo.Services.Trucks.Domain.Interfaces
 {
-    public interface IRepository<T>
+    public interface IRepository<T> where T : Entity, new()
     {
         Task<bool> DeleteAsync(long id);
         Task<bool> InsertAsync(T model);
