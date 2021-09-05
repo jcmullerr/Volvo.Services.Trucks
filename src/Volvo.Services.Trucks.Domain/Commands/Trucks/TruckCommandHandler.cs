@@ -19,5 +19,10 @@ namespace Volvo.Services.Trucks.Domain.Commands.Trucks
             _repository = repository;
             _notificationContext = notificationContext;
         }
+
+        public void AddNotFoundNotification()
+        {
+            _notificationContext.AddNotification("No truck with matching Id was found in the database");
+        }
     }
 }

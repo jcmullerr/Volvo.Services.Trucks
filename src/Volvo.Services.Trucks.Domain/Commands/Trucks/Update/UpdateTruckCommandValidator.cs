@@ -13,11 +13,11 @@ namespace Volvo.Services.Trucks.Domain.Commands.Trucks.Update
 
             RuleFor(p => p.FabricationYear)
                 .NotEmpty()
-                .GreaterThan(DateTime.Now.AddYears(-100));
+                .GreaterThan(DateTime.Now.Year - 100);
                 
             RuleFor(p => p.ModelYear)
                 .NotEmpty()
-                .GreaterThan(DateTime.Now.AddYears(-100));
+                .GreaterThan(DateTime.Now.Year - 100);
             
             
             RuleFor(x => x.Id)

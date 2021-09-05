@@ -25,7 +25,7 @@ namespace Volvo.Services.Trucks.Domain.Commands.Trucks.Get.Many
             CancellationToken cancellationToken
         )
         {
-            return await _repository.GetQuery().ToListAsync();
+            return await Task.Run<IEnumerable<Truck>>(() => _repository.GetQuery());
         }
     }
 }

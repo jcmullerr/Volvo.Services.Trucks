@@ -10,7 +10,7 @@ using Volvo.Services.Trucks.Infra.Data.Contexts;
 namespace Volvo.Services.Trucks.Infra.Data.Migrations
 {
     [DbContext(typeof(Context))]
-    [Migration("20210904202532_InitialDatabase")]
+    [Migration("20210905010924_InitialDatabase")]
     partial class InitialDatabase
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -58,14 +58,14 @@ namespace Volvo.Services.Trucks.Infra.Data.Migrations
                     b.Property<string>("Description")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<DateTime>("FabricationYear")
-                        .HasColumnType("datetime2");
+                    b.Property<int>("FabricationYear")
+                        .HasColumnType("int");
 
                     b.Property<DateTime>("InsertDate")
                         .HasColumnType("datetime2");
 
-                    b.Property<DateTime>("ModelYear")
-                        .HasColumnType("datetime2");
+                    b.Property<int>("ModelYear")
+                        .HasColumnType("int");
 
                     b.Property<int>("TruckModel")
                         .HasColumnType("int");

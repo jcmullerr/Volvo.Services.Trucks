@@ -6,8 +6,8 @@ namespace Volvo.Services.Trucks.Domain.Entities.Trucks
     public class Truck : Entity
     {
         public string Description { get; private set; }
-        public DateTime ModelYear { get; private set; }
-        public DateTime FabricationYear { get; private set; }
+        public int ModelYear { get; private set; }
+        public int FabricationYear { get; private set; }
         public ETruckModel TruckModel { get; private set; }
         public Truck()
         { }
@@ -15,8 +15,8 @@ namespace Volvo.Services.Trucks.Domain.Entities.Trucks
         public Truck(
             long id,
             string description,
-            DateTime modelYear,
-            DateTime fabricationYear,
+            int modelYear,
+            int fabricationYear,
             ETruckModel truckModel
         )
         {
@@ -29,8 +29,8 @@ namespace Volvo.Services.Trucks.Domain.Entities.Trucks
 
         public Truck(
             string description,
-            DateTime modelYear,
-            DateTime fabricationYear,
+            int modelYear,
+            int fabricationYear,
             ETruckModel truckModel
         )
         {

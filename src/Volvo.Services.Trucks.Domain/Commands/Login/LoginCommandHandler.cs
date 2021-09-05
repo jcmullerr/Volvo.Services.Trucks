@@ -36,8 +36,10 @@ namespace Volvo.Services.Trucks.Domain.Commands.Login
                 p.Password == request.Password
             );
 
-            if (user == default)
+            if (user == default){
                 _notificationContext.AddNotification("No user matched the credentials sent");
+                return default;
+            }
 
             return _tokenGeneratorService.GenerateToken(user);
         }

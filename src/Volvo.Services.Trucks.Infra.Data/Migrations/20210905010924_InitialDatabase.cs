@@ -14,8 +14,8 @@ namespace Volvo.Services.Trucks.Infra.Data.Migrations
                     Id = table.Column<long>(type: "bigint", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Description = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    ModelYear = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    FabricationYear = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    ModelYear = table.Column<int>(type: "int", nullable: false),
+                    FabricationYear = table.Column<int>(type: "int", nullable: false),
                     TruckModel = table.Column<int>(type: "int", nullable: false),
                     InsertDate = table.Column<DateTime>(type: "datetime2", nullable: false),
                     UpdateDate = table.Column<DateTime>(type: "datetime2", nullable: true)

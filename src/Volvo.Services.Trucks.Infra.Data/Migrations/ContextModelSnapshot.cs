@@ -56,14 +56,14 @@ namespace Volvo.Services.Trucks.Infra.Data.Migrations
                     b.Property<string>("Description")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<DateTime>("FabricationYear")
-                        .HasColumnType("datetime2");
+                    b.Property<int>("FabricationYear")
+                        .HasColumnType("int");
 
                     b.Property<DateTime>("InsertDate")
                         .HasColumnType("datetime2");
 
-                    b.Property<DateTime>("ModelYear")
-                        .HasColumnType("datetime2");
+                    b.Property<int>("ModelYear")
+                        .HasColumnType("int");
 
                     b.Property<int>("TruckModel")
                         .HasColumnType("int");
