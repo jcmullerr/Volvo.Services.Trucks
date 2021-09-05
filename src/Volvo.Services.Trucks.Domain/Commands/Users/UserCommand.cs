@@ -1,4 +1,5 @@
 using Volvo.Services.Trucks.Domain.Entities.Security;
+using Volvo.Services.Trucks.Infra.CrossCutting.Extensions;
 
 namespace Volvo.Services.Trucks.Domain.Commands.Users
 {
@@ -13,7 +14,7 @@ namespace Volvo.Services.Trucks.Domain.Commands.Users
             return new User(
                 Name,
                 Email,
-                Password
+                Password.ToMd5Hash()
             );
         }
     }

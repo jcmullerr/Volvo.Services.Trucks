@@ -4,6 +4,7 @@ using MediatR;
 using Volvo.Services.Trucks.Domain.Entities.Security;
 using Volvo.Services.Trucks.Domain.Interfaces;
 using Volvo.Services.Trucks.Domain.Interfaces.Authentication;
+using Volvo.Services.Trucks.Infra.CrossCutting.Extensions;
 using Volvo.Services.Trucks.Infra.Notifications.Interfaces;
 
 namespace Volvo.Services.Trucks.Domain.Commands.Login
@@ -33,7 +34,7 @@ namespace Volvo.Services.Trucks.Domain.Commands.Login
         {
             var user = await _repository.GetSingleAsync(
                 p => p.Email == request.Email &&
-                p.Password == request.Password
+                p.Password == request.Password.ToMd5Hash()
             );
 
             if (user == default){
