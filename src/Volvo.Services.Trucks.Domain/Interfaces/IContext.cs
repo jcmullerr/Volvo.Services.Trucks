@@ -8,5 +8,6 @@ namespace Volvo.Services.Trucks.Domain.Interfaces
     public interface IContext
     {
         DbSet<T> GetDbSet<T>() where T : Entity, new();
+        void Migrate();
     }
 }

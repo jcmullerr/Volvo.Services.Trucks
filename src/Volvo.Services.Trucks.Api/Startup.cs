@@ -5,6 +5,7 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Volvo.Services.Trucks.Domain.Interfaces;
 using Volvo.Services.Trucks.Infra.CrossCutting.Ioc;
 using Volvo.Services.Trucks.Infra.Notifications.Filters;
 
@@ -40,7 +41,11 @@ namespace Volvo.Services.Trucks.Api
             services.AddMediator();
         }
         
-        public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
+        public void Configure(
+            IApplicationBuilder app, 
+            IWebHostEnvironment env, 
+            IContext context
+        )
         {
             if (env.IsDevelopment())
             {
@@ -60,6 +65,8 @@ namespace Volvo.Services.Trucks.Api
             {
                 endpoints.MapControllers();
             });
+
+            context.Migrate();
         }
     }
 }

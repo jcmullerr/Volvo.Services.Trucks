@@ -30,5 +30,10 @@ namespace Volvo.Services.Trucks.Infra.Data.Contexts
 
             return (DbSet<T>)propertyInfo.GetValue(this);
         }
+
+        public void Migrate()
+        {
+            Database.Migrate();
+        }
     }
 }
